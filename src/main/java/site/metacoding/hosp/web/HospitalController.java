@@ -12,7 +12,6 @@ import lombok.RequiredArgsConstructor;
 import site.metacoding.hosp.domain.Hospital;
 import site.metacoding.hosp.domain.HospitalRepository;
 
-@CrossOrigin
 @RequiredArgsConstructor
 @Controller
 public class HospitalController {
@@ -30,6 +29,7 @@ public class HospitalController {
         return "index"; // templates/index.mustache 찾음
     }
 
+    @CrossOrigin(origins = "*")
     // http://localhost:8000/api/hospital?sidoCdNm=머시기&sgguCdNm=머시기
     @GetMapping("/api/hospital")
     public @ResponseBody List<Hospital> hospitals(String sidoCdNm, String sgguCdNm) {
@@ -37,6 +37,7 @@ public class HospitalController {
         return hRepository.mFindHospital(sidoCdNm, sgguCdNm);
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/api/sggucdnm")
     // 응답도 json으로 할 예정
     public @ResponseBody List<String> sggucdnm(String sidoCdNm) { // 아니네 그냥 쿼리스트링 받으면 되네
