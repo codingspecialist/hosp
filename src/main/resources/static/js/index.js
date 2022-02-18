@@ -1,18 +1,3 @@
-var mapOptions = {
-    center: new naver.maps.LatLng(37.3595704, 127.105399),
-    zoom: 10
-};
-
-var map = new naver.maps.Map('map', mapOptions);
-var markers = [];
-
-/*
-  var marker = new naver.maps.Marker({
-    position: new naver.maps.LatLng(37.3595704, 127.105399),
-    map: map
-  });
-*/
-
 document.querySelector("#btn-submit").addEventListener("click", (e) => {
 
     let sidoCdNm = document.querySelector("#sidoCdNm").value;
@@ -24,23 +9,10 @@ document.querySelector("#btn-submit").addEventListener("click", (e) => {
     getHospital(sidoCdNm, sgguCdNm);
 });
 
-let setMarkers = (responsePasing) => {
-    responsePasing.forEach((e) => {
-        console.log(e);
-        let marker = new naver.maps.Marker({
-            position: new naver.maps.LatLng(e.xPosWgs84, e.yPosWgs84),
-            map: map
-        });
-        marker.setMap(map);
-    });
-}
-
-
 let getHospital = async (sidoCdNm, sgguCdNm) => {
     let response = await fetch(`http://localhost:8000/api/hospital?sidoCdNm=${sidoCdNm}&sgguCdNm=${sgguCdNm}`);
     let responsePasing = await response.json();
 
-    setMarkers(responsePasing);
     //console.log(responsePasing);
     setHospital(responsePasing);
 }
