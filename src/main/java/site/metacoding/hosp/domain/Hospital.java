@@ -31,8 +31,8 @@ public class Hospital {
     private Integer recuClCd; // 요양종별코드 (종합병원11, 병원21, 의원31)
     private String sgguCdNm; // 시군구명 : 김해시
     private String sidoCdNm; // 시도명 : 경상남도
-    private Double xPosWgs84; // x좌표 (위도)
-    private Double yPosWgs84; // y좌표 (경도)
+    private Double XPosWgs84; // x좌표 (위도)
+    private Double YPosWgs84; // y좌표 (경도)
     private String yadmNm; // 요양기관명
     private String ykihoEnc; // 암호화된 요양 기호
     private Integer xPos; // x좌표 (좌표)

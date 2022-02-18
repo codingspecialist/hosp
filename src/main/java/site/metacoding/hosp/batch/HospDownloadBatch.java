@@ -27,8 +27,8 @@ public class HospDownloadBatch {
         private final HospitalRepository hospitalRepository;
 
         // 아 바보.....시간낭비 했네 ㅡㅡ;
-        // 초 분 시 일 월 주 (현재시간 15시 30분)
-        @Scheduled(cron = "0 31 * * * *", zone = "Asia/Seoul") // 매 분마다 배치해서 테스트 완료하고 매 시 마다로 변경하기
+        // 초 분 시 일 월 주 (현재시간 17시 02분) 배포 시간 고려해서 5시15분 다시빌드하자.
+        @Scheduled(cron = "0 30 * * * *", zone = "Asia/Seoul") // 매 분마다 배치해서 테스트 완료하고 매 시 마다로 변경하기
         public void startBatch() {
                 // System.out.println("나 1분 마다 실행됨");
                 // 1. 담을 그릇 준비
@@ -66,8 +66,8 @@ public class HospDownloadBatch {
                                                         .recuClCd(e.getRecuClCd())
                                                         .sgguCdNm(e.getSgguCdNm())
                                                         .sidoCdNm(e.getSidoCdNm())
-                                                        .xPosWgs84(e.getXPosWgs84())
-                                                        .yPosWgs84(e.getYPosWgs84())
+                                                        .XPosWgs84(e.getXPosWgs84())
+                                                        .YPosWgs84(e.getYPosWgs84())
                                                         .yadmNm(e.getYadmNm())
                                                         .ykihoEnc(e.getYkihoEnc())
                                                         .xPos(e.getXPos())
